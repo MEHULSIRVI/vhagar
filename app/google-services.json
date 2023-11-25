@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "396412134176",
+    "project_id": "evrange-a2740",
+    "storage_bucket": "evrange-a2740.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:396412134176:android:3a57bbcfe4232dfa2bed45",
+        "android_client_info": {
+          "package_name": "com.example.project"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDpJEWOIgVqU4BqF2FWh2irVMj_6d6c-Y4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:396412134176:android:af6bcd560416730a2bed45",
+        "android_client_info": {
+          "package_name": "com.example.vhagar"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDpJEWOIgVqU4BqF2FWh2irVMj_6d6c-Y4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
