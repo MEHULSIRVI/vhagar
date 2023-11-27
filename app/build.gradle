@@ -51,6 +51,15 @@ dependencies {
     //noinspection UseTomlInstead
     implementation("com.google.firebase:firebase-analytics")
     implementation libs.android
+    implementation libs.material.v140
+    implementation "com.airbnb.android:lottie:6.2.0"
+    // GSON converter
+    implementation "com.squareup.retrofit2:converter-gson:2.9.0"
+// retrofit
+    implementation "com.squareup.retrofit2:retrofit:2.9.0"
+
+
+
 //    implementation libs.mapbox.android.sdk
 //    implementation libs.mapbox.android.plugin.locationlayer
 //    implementation libs.mapbox.android.plugin.annotation.v9.v090

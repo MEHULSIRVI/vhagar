@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/mapFragment"
+        android:title="@string/map"
+        android:icon="@drawable/map" />
+    <item
+        android:id="@+id/weatherFragment"
+        android:title="@string/weather"
+        android:icon="@drawable/cloudy" />
+    <item
+        android:id="@+id/tripFragment"
+        android:title="@string/trip"
+        android:icon="@drawable/distance" />
+    <item
+        android:id="@+id/profileFragment"
+        android:title="@string/profile"
+        android:icon="@drawable/profile" />
+</menu>

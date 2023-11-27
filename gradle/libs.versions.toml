@@ -7,6 +7,8 @@ junit = "4.13.2"
 junitVersion = "1.1.5"
 espressoCore = "3.5.1"
 appcompat = "1.6.1"
+lottie = " 6.2.0"
+lottieVersion = " 6.2.0"
 mapboxAndroidPluginAnnotationV9 = "0.9.0"
 mapboxAndroidPluginLocationlayer = "0.11.0"
 mapboxAndroidSdk = "9.7.1"
@@ -15,6 +17,7 @@ googleServices = "4.4.0"
 firebaseAuth = "22.3.0"
 activity = "1.8.0"
 constraintlayout = "2.1.4"
+materialVersion = "1.4.0"
 
 [libraries]
 android = { module = "com.mapbox.maps:android", version.ref = "android" }
@@ -23,6 +26,8 @@ junit = { group = "junit", name = "junit", version.ref = "junit" }
 androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
 androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
 androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
+lottie = { module = "com.airbnb.android:lottie", version.ref = "lottie" }
+lottie-v620 = { module = "com.airbnb.android:lottie", version.ref = "lottieVersion" }
 mapbox-android-plugin-annotation-v9 = { module = "com.mapbox.mapboxsdk:mapbox-android-plugin-annotation-v9", version.ref = "mapboxAndroidPluginLocationlayer" }
 mapbox-android-plugin-annotation-v9-v090 = { module = "com.mapbox.mapboxsdk:mapbox-android-plugin-annotation-v9", version.ref = "mapboxAndroidPluginAnnotationV9" }
 mapbox-android-plugin-locationlayer = { module = "com.mapbox.mapboxsdk:mapbox-android-plugin-locationlayer", version.ref = "mapboxAndroidPluginLocationlayer" }
@@ -32,6 +37,7 @@ google-services = { group = "com.google.gms", name = "google-services", version.
 firebase-auth = { group = "com.google.firebase", name = "firebase-auth", version.ref = "firebaseAuth" }
 androidx-activity = { group = "androidx.activity", name = "activity", version.ref = "activity" }
 androidx-constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintlayout" }
+material-v140 = { module = "com.google.android.material:material", version.ref = "materialVersion" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }
