@@ -1,20 +1,17 @@
 package com.example.vhagar
 
 import android.annotation.SuppressLint
-import android.content.ContentValues.TAG
-import android.nfc.Tag
 import android.os.Bundle
-import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.widget.SearchView
+import androidx.fragment.app.Fragment
 import com.airbnb.lottie.LottieAnimationView
 import com.airbnb.lottie.LottieDrawable
-import com.example.vhagar.databinding.ActivityMainBinding
-import com.example.vhagar.databinding.FragmentMainBinding
 import com.example.vhagar.databinding.FragmentWeatherBinding
+import com.example.vhagar.setting.ApiInterface
+import com.example.vhagar.setting.Weather
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -30,6 +27,7 @@ class WeatherFragment : Fragment() {
 
     private lateinit var binding: FragmentWeatherBinding
 
+    @SuppressLint("SuspiciousIndentation")
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -100,6 +98,8 @@ class WeatherFragment : Fragment() {
                         binding.textView3.text = dayName(System.currentTimeMillis())
 
                     binding.city.text = "$city"
+                    changeimage(conditions)
+
 
 
                 }
@@ -119,6 +119,40 @@ class WeatherFragment : Fragment() {
     fun dayName(timestamp: Long): String{
         val sdf = SimpleDateFormat("EEEE", Locale.getDefault())
         return sdf.format((Date()))
+    }
+    private fun changeimage(conditions: String){
+        when(conditions){
+            "Partly Clouds","Clouds","Overcast","Mist","Foggy","Smoke" ->{
+                binding.root.setBackgroundResource(R.drawable.colud_background)
+                binding.lottieAnimationView.setAnimation(R.raw.cloud)
+                binding.lottieAnimationView.playAnimation()
+
+
+            }
+
+            "Clear Sky","Sunny","Clear" ->{
+                binding.root.setBackgroundResource(R.drawable.sunny_background)
+                binding.lottieAnimationView.setAnimation(R.raw.sun)
+                binding.lottieAnimationView.playAnimation()
+
+
+            }
+
+             "Light Rain","Drizzle","Moderate Rain","Showers","Heavy Rain","Haze" ->{
+                binding.root.setBackgroundResource(R.drawable.rain_background)
+                 binding.lottieAnimationView.setAnimation(R.raw.rain)
+                 binding.lottieAnimationView.playAnimation()
+
+
+            }
+
+            "Light Snow","Moderate Snow","Heavy Snow","Blizzard" ->{
+                binding.root.setBackgroundResource(R.drawable.snow)
+                binding.lottieAnimationView.playAnimation()
+            
+            }
+        }
+
     }
 
 

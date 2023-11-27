@@ -1,17 +1,9 @@
 package com.example.vhagar
 
 import android.os.Bundle
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentManager
-import com.example.vhagar.R
 import com.example.vhagar.databinding.ActivityMainBinding
-import com.mapbox.maps.MapView
-import com.mapbox.maps.Style
-import com.mapbox.maps.plugin.Plugin
 
 class MainActivity : AppCompatActivity() {
 

@@ -1,59 +1,80 @@
 package com.example.vhagar
 
+import android.graphics.Color.rgb
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.fragment.app.Fragment
+import com.mapbox.geojson.Point
+import com.mapbox.maps.MapView
+import com.mapbox.maps.MapboxMap
+import com.mapbox.maps.Style
+import com.mapbox.maps.dsl.cameraOptions
+import com.mapbox.maps.extension.style.atmosphere.generated.atmosphere
+import com.mapbox.maps.extension.style.layers.properties.generated.ProjectionName
+import com.mapbox.maps.extension.style.projection.generated.projection
+import com.mapbox.maps.extension.style.sources.generated.rasterDemSource
+import com.mapbox.maps.extension.style.style
+import com.mapbox.maps.extension.style.terrain.generated.terrain
+import com.mapbox.maps.plugin.animation.MapAnimationOptions.Companion.mapAnimationOptions
+import com.mapbox.maps.plugin.animation.flyTo
+import com.mapbox.maps.plugin.gestures.OnMapClickListener
+import com.mapbox.maps.plugin.gestures.addOnMapClickListener
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
+class TripFragment : Fragment(), OnMapClickListener {
 
-/**
- * A simple [Fragment] subclass.
- * Use the [TripFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
-class TripFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
+    private lateinit var mapboxMap: MapboxMap
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_trip, container, false)
+        val mapView = MapView(requireContext())
+        return mapView
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment TripFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            TripFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        mapboxMap = (view as MapView).getMapboxMap()
+        mapboxMap.loadStyle(
+            style(Style.SATELLITE_STREETS) {
+                +projection(ProjectionName.GLOBE)
+                +atmosphere {
+                    color(rgb(220, 159, 159))
+                    highColor(rgb(220, 159, 159))
+                    horizonBlend(0.4)
+                }
+                +rasterDemSource("raster-dem") {
+                    url("mapbox://mapbox.terrain-rgb")
+                }
+                +terrain("raster-dem") {
+                    exaggeration(1.5)
                 }
             }
+        ) {
+            Toast.makeText(
+                requireContext(),
+                getString(R.string.hello_blank_fragment),
+                Toast.LENGTH_LONG
+            ).show()
+            mapboxMap.addOnMapClickListener(this@TripFragment)
+        }
+    }
+
+    override fun onMapClick(point: Point): Boolean {
+        mapboxMap.flyTo(
+            cameraOptions {
+                center(point)
+                zoom(12.5)
+                pitch(75.0)
+                bearing(130.0)
+            },
+            mapAnimationOptions {
+                duration(12_000)
+            }
+        )
+        return true
     }
 }

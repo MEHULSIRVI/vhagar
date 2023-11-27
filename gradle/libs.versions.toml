@@ -1,5 +1,5 @@
 [versions]
-agp = "8.3.0-alpha05"
+agp = "8.3.0-alpha14"
 android = "10.16.2"
 kotlin = "1.9.0"
 coreKtx = "1.12.0"
@@ -18,6 +18,7 @@ firebaseAuth = "22.3.0"
 activity = "1.8.0"
 constraintlayout = "2.1.4"
 materialVersion = "1.4.0"
+playServicesLocation = "21.0.1"
 
 [libraries]
 android = { module = "com.mapbox.maps:android", version.ref = "android" }
@@ -38,6 +39,7 @@ firebase-auth = { group = "com.google.firebase", name = "firebase-auth", version
 androidx-activity = { group = "androidx.activity", name = "activity", version.ref = "activity" }
 androidx-constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintlayout" }
 material-v140 = { module = "com.google.android.material:material", version.ref = "materialVersion" }
+play-services-location = { module = "com.google.android.gms:play-services-location", version.ref = "playServicesLocation" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }

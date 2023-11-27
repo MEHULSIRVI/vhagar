@@ -1,4 +1,4 @@
-package com.example.project
+package com.example.vhagar.authentication
 
 import android.content.Intent
 import android.os.Bundle
@@ -10,7 +10,6 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.vhagar.MainActivity
 import com.example.vhagar.R
-import com.example.vhagar.SignUpActivity
 
 import com.google.firebase.auth.FirebaseAuth
 

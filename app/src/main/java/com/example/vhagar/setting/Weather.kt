@@ -1,6 +1,12 @@
-package com.example.vhagar
+package com.example.vhagar.setting
 
+import com.example.vhagar.setting.Clouds
+import com.example.vhagar.setting.Coord
+import com.example.vhagar.setting.Main
+import com.example.vhagar.setting.Rain
 import com.example.vhagar.setting.Sys
+import com.example.vhagar.setting.WeatherX
+import com.example.vhagar.setting.Wind
 
 data class Weather(
     val base: String,
