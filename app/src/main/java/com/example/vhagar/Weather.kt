@@ -1,5 +1,7 @@
 package com.example.vhagar
 
+import com.example.vhagar.setting.Sys
+
 data class Weather(
     val base: String,
     val clouds: Clouds,

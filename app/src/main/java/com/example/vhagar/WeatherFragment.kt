@@ -11,6 +11,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.widget.SearchView
 import com.airbnb.lottie.LottieAnimationView
+import com.airbnb.lottie.LottieDrawable
 import com.example.vhagar.databinding.ActivityMainBinding
 import com.example.vhagar.databinding.FragmentMainBinding
 import com.example.vhagar.databinding.FragmentWeatherBinding
@@ -29,41 +30,40 @@ class WeatherFragment : Fragment() {
 
     private lateinit var binding: FragmentWeatherBinding
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-        fetchWeatherData("jaipur")
-//        SearchCity()
-    }
-//
-//    private fun SearchCity() {
-//        val searchView = binding.searchView
-//
-//        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
-//            override fun onQueryTextSubmit(query: String?): Boolean {
-//                if (query != null) {
-//                    fetchWeatherData(query)
-//                }
-//                return true
-//            }
-//
-//            override fun onQueryTextChange(newText: String?): Boolean {
-//                // Handle text change if needed
-//                return true
-//            }
-//        })
-//    }
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentWeatherBinding.inflate(inflater, container, false)
         val view = binding.root
-//        val lottieAnimationView: LottieAnimationView = binding.lottieAnimationView
-//        lottieAnimationView.playAnimation()
+
+        fetchWeatherData("jaipur")
+        SearchCity()
+
+        val lottieAnimationView: LottieAnimationView = binding.lottieAnimationView
+            lottieAnimationView.setAnimation(R.raw.rain)
+            lottieAnimationView.repeatCount = LottieDrawable.INFINITE
+            lottieAnimationView.playAnimation()
 
         return view
+    }
+
+    private fun SearchCity() {
+        val searchView = binding.searchView
+
+        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                if (query != null) {
+                    fetchWeatherData(query)
+                }
+                return true
+            }
+
+            override fun onQueryTextChange(newText: String?): Boolean {
+                // Handle text change if needed
+                return true
+            }
+        })
     }
     private fun fetchWeatherData(city:String){
         val retrofit = Retrofit.Builder()
